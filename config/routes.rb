@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+#resources :companies
+  get  '/companies', :to => 'companies#index', :as => :companies
+  get  '/companies/new', :to => 'companies#new', :as => :new_company
+  get  '/companies/:id', :to => 'companies#show', :as => :company
+  post '/companies', :to => 'companies#create'
+
+  root 'companies#new'
+
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
