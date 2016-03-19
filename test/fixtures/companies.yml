@@ -1,9 +1,21 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+require 'yaml'
+YAML.load "--- \n:private: \n")
+=> {:private=>nil}
 
 one:
-  name: MyString
-  orgnr: MyString
+  name: ikea
+  orgnr: 556809-9963
 
 two:
-  name: MyString
-  orgnr: MyString
+  name: volvo
+  orgnr:
+
+three:
+  name:
+  orgnr: 556809-9963
+
+four:
+  name:
+  orgnr:
+
