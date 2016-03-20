@@ -1,7 +1,4 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-require 'yaml'
-YAML.load "--- \n:private: \n")
-=> {:private=>nil}
 
 one:
   name: ikea

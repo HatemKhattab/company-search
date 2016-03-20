@@ -13,7 +13,7 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %>
+    <%= f.label "Company name" %>
     <%= f.text_field :name %>
   </div><br>
 
@@ -21,3 +21,10 @@
     <%= f.submit "Search" %>
   </div>
 <% end %>
+
+<hr>
+
+<%if session[:success].present?%>
+<h5>Company : <%=session[:name]%></h5>
+<h5>Orgnr   : <%=session[:orgnr]%></h5>
+<%end%>

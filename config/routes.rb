@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
 #resources :companies
-  get  '/companies', :to => 'companies#index', :as => :companies
-  get  '/companies/new', :to => 'companies#new', :as => :new_company
-  get  '/companies/:id', :to => 'companies#show', :as => :company
-  post '/companies', :to => 'companies#create'
+  #get  '/companies', :to => 'companies#index', :as => :companies
+   get  '/companies/new', :to => 'companies#new', :as => :new_company
+   post '/companies', :to => 'companies#create'
+  #get  '/companies/:id', :to => 'companies#show', :as => :company
 
   root 'companies#new'
 

@@ -1,9 +1,5 @@
 #company_search
 class CompaniesController < ApplicationController
-  before_action :set_company, only: [:show]
-
-  def index
-  end
 
   def new
     @company = Company.new
@@ -13,24 +9,25 @@ class CompaniesController < ApplicationController
     @company = Company.new(company_params)
     @company.orgnr = getCompanyOrgnr(@company.name)
     if @company.orgnr.nil?
-      flash[:notice] = "No result!, please try again"
-      render :new
+      flash[:notice] = "searching "+@company.name.to_s+"  fails! , please try a nother name"
+      if session[:success].present?
+        session.delete(:success)
+      end
+    redirect_to root_path
+      #render :new
     else
       #if the search find compnay orgnr
       @company.save
-      redirect_to @company
+      session[:success] = "true"
+      session[:orgnr] = @company.orgnr
+      session[:name] = @company.name
+      flash.discard(:notice)
+      redirect_to root_path
     end
   end
-
-  def show
-  end
-
 
   private
-    def set_company
-      @company = Company.find(params[:id])
-    end
-
+  
     def company_params
       params.require(:company).permit(:name)
     end
