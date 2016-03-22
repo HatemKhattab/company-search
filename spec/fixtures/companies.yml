@@ -1,3 +1,15 @@
 ikea:
   name: ikea ab
-  orgnr:556809-9963
+  orgnr: 556809-9963
+
+scania:
+  name:
+  orgnr: 556084-0976
+
+volvo:
+  name: Aktiebolaget Volvo
+  orgnr:
+
+saab:
+  name:
+  orgnr:
