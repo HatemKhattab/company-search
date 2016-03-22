@@ -1,3 +1,12 @@
 == README
 
+Here i do my new challenge , To create webpage that take aname of compnay and return the organising
+number of the compnay.
+
+The project should have:
+- One view
+- Client that response with specific compnay
+- Return JSON and XML
+- Automated testing
+
 .
