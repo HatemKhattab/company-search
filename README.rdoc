@@ -1,7 +1,7 @@
 == README
 
-Here i do my new challenge , To create webpage that take aname of compnay and return the organising
-number of the compnay.
+Here i do my new challenge , To create webpage that take a name of a compnay and return the organising
+number of it.
 
 The project should have:
 - One view
