@@ -5,24 +5,20 @@ class CompaniesController < ApplicationController
     @company = Company.new
   end
 
+  def show
+    @compnay = company.find(params[id:])
+  end
+
   def create
     @company = Company.new(company_params)
     @company.orgnr = getCompanyOrgnr(@company.name)
     if @company.orgnr.nil?
       flash[:notice] = "searching "+@company.name.to_s+"  fails! , please try a nother name"
-      if session[:success].present?
-        session.delete(:success)
-      end
-    redirect_to root_path
-      #render :new
+      render :new
     else
       #if the search find compnay orgnr
       @company.save
-      session[:success] = "true"
-      session[:orgnr] = @company.orgnr
-      session[:name] = @company.name
-      flash.discard(:notice)
-      redirect_to root_path
+      redirect_to "compnay_path"
     end
   end
 
