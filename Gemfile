@@ -10,6 +10,8 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'nokogiri', '~> 1.6', '>= 1.6.7.2'
+gem 'rabl'
+gem 'oj'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'web-console', '~> 2.0', group: :development
 
