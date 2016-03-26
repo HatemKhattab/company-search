@@ -1,0 +1,2 @@
+object @company
+  attributes :orgnr
