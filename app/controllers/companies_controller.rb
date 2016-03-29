@@ -15,7 +15,7 @@ before_action :set_company, only: [:show]
     if @company.orgnr.nil?
       flash[:notice] = "searching "+@company.name.to_s+"  fails! , please try a nother name"
       #render :new
-      redirect_to :root
+      redirect_to :new_company
     else
       #if the search find compnay orgnr
       @company.save
