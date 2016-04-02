@@ -24,7 +24,7 @@ RSpec.describe CompaniesController, :type => :controller do
   end
 
   describe 'post #create' do
-    describe 'with invalid params' do
+    context 'with invalid params' do
       compnay_counter_before = Company.count
 
       before do
@@ -49,7 +49,34 @@ RSpec.describe CompaniesController, :type => :controller do
       end
     end
 
-    describe 'with valid params' do
+    context 'with valid params' do
+      before do
+        post :create, {:company => {name: "ikea"}}
+      end
+
+      it "has redirection http status success" do
+        expect(response).to have_http_status(302)
+      end
+
+      it "has html content type" do
+        expect(response.content_type).to eq(:html)
+      end
+
+      it "redirected to show action " do
+        expect(response).to redirect_to :action => :show, :id => assigns(:company).id
+      end
+
+      it "redirected to /companies/:id " do
+        expect(response).to redirect_to ("/companies/#{assigns(:company).id}")
+      end
+
+      it "contains org number in show page" do
+        #   expect(page).to have_text(assigns(:company).name.to_s)
+        #  expect(response).to have_selector 'h1', :text => 'ikea'
+      end
+
+      it "increment compnay table by 1"
+
     end
 
   end
@@ -58,6 +85,8 @@ RSpec.describe CompaniesController, :type => :controller do
     describe 'html' do
     end
     describe 'json' do
+    end
+   describe 'xml' do
     end
   end
 
