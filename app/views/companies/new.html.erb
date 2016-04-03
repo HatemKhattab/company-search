@@ -1,4 +1,5 @@
-<h1>Company search</h1>
+<div id="compnay_search" class="col-md-4 col-md-offset-4">
+<h1 class="col-md-offset-1" >Company search</h1><br>
 <%= form_for(@company) do |f| %>
   <% if @company.errors.any? %>
     <div id="error_explanation">
@@ -12,12 +13,11 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label "Company name" %>
-    <%= f.text_field :name %>
-  </div><br>
-
-  <div class="actions">
-    <%= f.submit "Search" %>
+  <div class="col-md-10 col-md-offset-1">
+    <%= f.text_field :name, :placeholder =>" Enter company name", input_html: {class: ''} %>
+    <%= f.submit "Get Orgnr",class: "", id:"get_orgnr" %>
   </div>
+
+  <br><br>
 <% end %>
+</div>
