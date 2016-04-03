@@ -3,7 +3,7 @@ RSpec.describe "routes for compnaies", :type => :routing do
   it "routes 'companies/new' to companies#new" do
     expect(:get => "/companies/new").
     to route_to(:controller => "companies", :action => "new")
-  end
+  end 
 
   it "routes 'companies/' to companies#create" do
     expect(:post => "/companies").

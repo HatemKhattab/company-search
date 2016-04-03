@@ -50,6 +50,7 @@ RSpec.describe CompaniesController, :type => :controller do
     end
 
     context 'with valid params' do
+      compnay_counter_before = Company.count
       before do
         post :create, {:company => {name: "ikea"}}
       end
@@ -70,23 +71,76 @@ RSpec.describe CompaniesController, :type => :controller do
         expect(response).to redirect_to ("/companies/#{assigns(:company).id}")
       end
 
-      it "contains org number in show page" do
-        #   expect(page).to have_text(assigns(:company).name.to_s)
-        #  expect(response).to have_selector 'h1', :text => 'ikea'
+      it "increment compnay table by 1" do
+        expect(Company.count - compnay_counter_before).to eq(1)
       end
-
-      it "increment compnay table by 1"
-
     end
 
   end
 
  describe 'get #show' do
-    describe 'html' do
+    context 'html' do
+      before do
+        @company = Company.create!(name: "Apotek hjärtat", orgnr: "4444-777777")
+        get :show, id: @company
+      end
+
+      it "should be success" do
+       expect(response.status).to eq(200)
+      end
+
+      it "has html content type" do
+       expect(response.content_type).to eq("text/html")
+      end
+
+      it "render show template" do
+       expect(response).to render_template :show
+      end
+
+      it "find the correct compnay by its id" do
+        expect(assigns[:company].name).to eq("Apotek hjärtat")
+        expect(assigns[:company].orgnr).to eq("4444-777777")
+      end
     end
-    describe 'json' do
+
+    context 'json' do
+      before do
+        @company = Company.create!(name: "Willys AB", orgnr: "2222-333333")
+        get :show, id: @company, format: "json"
+      end
+
+      it "should be success" do
+        expect(response.status).to eq(200)
+      end
+
+      it "has json content type" do
+        expect(response.content_type).to eq("application/json")
+      end
+
+       it "find the correct compnay by its id" do
+         expect(assigns[:company].name).to eq("Willys AB")
+         expect(assigns[:company].orgnr).to eq("2222-333333")
+      end
     end
-   describe 'xml' do
+
+   context 'xml' do
+      before do
+        @company = Company.create!(name: "IKEA AB", orgnr: "5555-888888")
+        get :show, id: @company, format: "xml"
+      end
+
+      it "should be success" do
+        expect(response.status).to eq(200)
+      end
+
+      it "has xml content type" do
+        expect(response.content_type).to eq("application/xml")
+      end
+
+       it "find the correct compnay by its id" do
+         expect(assigns[:company].name).to eq("IKEA AB")
+         expect(assigns[:company].orgnr).to eq("5555-888888")
+      end
     end
   end
 
