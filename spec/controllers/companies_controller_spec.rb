@@ -76,6 +76,26 @@ RSpec.describe CompaniesController, :type => :controller do
       end
     end
 
+    context 'with blabk input' do
+      compnay_counter_before = Company.count
+      before do
+        post :create, {:company => {name: ""}}
+      end
+
+      it "redirected to new template" do
+        expect(response).to redirect_to :action => :new
+      end
+
+      it "not increment compnay table " do
+        expect(Company.count - compnay_counter_before).to eq(0)
+      end
+
+      it "has flash error message" do
+        expect(flash[:notice]).to be_present
+        expect(flash[:notice]).to eq("you didnt enter a name , please try again")
+      end
+    end
+
   end
 
  describe 'get #show' do
