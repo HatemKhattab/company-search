@@ -1,19 +1,19 @@
 RSpec.describe Company, :type => :model do
   fixtures :companies
 
-  it "accept compnay with name and orgnr" do
+  it "accept company with name and orgnr" do
     expect(companies(:ikea)).to be_valid
   end
 
-  it "not accept compnay without name" do
+  it "not accept company without name" do
     expect(companies(:scania)).to be_invalid
   end
 
-  it "not accept compnay without orgnr" do
+  it "not accept company without orgnr" do
     expect(companies(:volvo)).not_to be_valid
   end
 
-  it "not accept compnay without name and orgnr" do
+  it "not accept company without name and orgnr" do
     expect(companies(:saab)).not_to be_valid
   end
 

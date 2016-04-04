@@ -22,8 +22,12 @@ before_action :set_company, only: [:show]
       flash[:notice] = "searching "+@company.name.to_s+"  fails! , please try a nother name"
       redirect_to :new_company and return
     else
-      @company.save
-      redirect_to @company and return
+      if @company.save
+        redirect_to @company and return
+      else
+        flash[:notice] = "unknown error , please try again ";
+        redirect_to :new_company and return
+      end
     end
 
   end
@@ -45,20 +49,12 @@ before_action :set_company, only: [:show]
       return company_name
     end
 
-    def check_apoex(company_name)
-      if company_name.include? "apoex"
+    def checkNotEmpty(text)
+      if text.nil? || text.blank?
         return true
       else
         return false
       end
     end
-
-  def checkNotEmpty(text)
-    if text.nil? || text.blank?
-      return true
-    else
-      return false
-    end
-  end
 
 end
