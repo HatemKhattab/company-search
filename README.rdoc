@@ -1,12 +1,11 @@
 == README
 
-Here i do my new challenge , To create webpage that take a name of a compnay and return the organising
-number of it.
+Here i  my new challenge , To create webpage that take a name of a company and return the organization number of it.
 
-The project should have:
+The project  have:
+
 - One view
-- Client that response with specific compnay
+- Client that response ApoeX AB
 - Return JSON and XML
-- Automated testing
-
-.
+- Save data in Mysql data base
+- Testing with Rspec
