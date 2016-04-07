@@ -16,6 +16,13 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'web-console', '~> 2.0', group: :development
 
+group :production do
+  gem 'pg'
+  gem 'rails_12factor'
+  gem 'puma'
+  gem 'heroku'
+end
+
 group :development, :test do
   gem 'byebug'
   gem 'spring', '1.1.3'
