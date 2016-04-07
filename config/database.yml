@@ -32,10 +32,7 @@ test:
 production:
 
   database: company_search_production
-  username: company_search
-  password: <%= ENV['COMPANY_SEARCH_DATABASE_PASSWORD'] %>
   adapter: postgresql
   encoding: unicode
-  # For details on connection pooling, see rails configuration guide
-  # http://guides.rubyonrails.org/configuring.html#database-pooling
   pool: 5
+  timeout: 5000
