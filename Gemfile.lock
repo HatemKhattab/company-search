@@ -229,6 +229,7 @@ PLATFORMS
 
 DEPENDENCIES
   actionpack (>= 4.2.5.2)
+  activejob (>= 4.2.8)
   bootstrap-sass (~> 3.3.6)
   byebug
   coffee-rails (~> 4.1.0)
