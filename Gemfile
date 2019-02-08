@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 
-
-gem 'rails', '4.2.3'
+gem 'rails', '4.2.8'
 ruby '2.3.2'
 
 gem 'sass-rails', '~> 5.0'
@@ -18,6 +17,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'web-console', '~> 2.0', group: :development
 gem "rails-html-sanitizer", ">= 1.0.4"
 gem "ffi", ">= 1.9.24"
+gem "actionpack", ">= 4.2.5.2"
 
 group :production do
   gem 'pg'
